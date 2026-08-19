@@ -1,0 +1,131 @@
+/* Apple Dark Monochrome Design System for Tiyani Nkuna Portfolio */
+:root {
+    --bg-black: #000000;
+    --bg-dark-1: #09090b;
+    --bg-dark-2: #121215;
+    --bg-card: rgba(255, 255, 255, 0.04);
+    --text-white: #ffffff;
+    --text-light: #f4f4f5;
+    --text-subtle: #a1a1aa;
+    --text-muted: #71717a;
+    --border-hairline: rgba(255, 255, 255, 0.12);
+    --border-hover: rgba(255, 255, 255, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-black);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: var(--bg-black);
+    color: var(--text-white);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Apple Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #000000;
+}
+::-webkit-scrollbar-thumb {
+    background: #27272a;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #52525b;
+}
+
+/* Glassmorphism & Apple Cards */
+.apple-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.apple-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+}
+
+/* Apple Pill Button */
+.apple-btn-primary {
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: 600;
+    border-radius: 9999px;
+    padding: 0.75rem 1.75rem;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.apple-btn-primary:hover {
+    background-color: #e4e4e7;
+    transform: scale(1.02);
+}
+
+.apple-btn-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    font-weight: 500;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.75rem 1.75rem;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.apple-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.02);
+}
+
+/* SQL Code Snippet Syntax Highlighting */
+.sql-code {
+    color: #f4f4f5;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+.sql-comment {
+    color: #71717a;
+    font-style: italic;
+}
+.sql-keyword {
+    color: #ffffff;
+    font-weight: 700;
+}
+.sql-type {
+    color: #a1a1aa;
+}
+.sql-string {
+    color: #e4e4e7;
+}
+
+.lightbox-trigger {
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.lightbox-trigger:hover {
+    transform: scale(1.02);
+}

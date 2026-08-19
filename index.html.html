@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiyani Nkuna | Portfolio</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#e6f2ff',
+                            400: '#66a9ff',
+                            500: '#007acc',
+                            600: '#005da8',
+                            900: '#0f2c4f',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Style Overrides -->
+    <style>
+        /* Custom scrollbar for dark UI */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0891b2;
+        }
+
+        /* Subtle blue accents without glossy effects */
+        .card-glow:hover {
+            box-shadow: 0 0 0 1px rgba(0, 122, 204, 0.18);
+            border-color: rgba(0, 122, 204, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white min-h-screen flex flex-col justify-between" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+
+    <!-- ================= HEADER & NAVIGATION ================= -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-slate-950 border-b border-slate-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand / Logo -->
+            <a href="#home" class="text-xl sm:text-2xl font-bold tracking-tight text-white flex items-center gap-2 group">
+                <span class="text-brand-400 font-mono text-2xl group-hover:rotate-12 transition-transform duration-300">&lt;/&gt;</span>
+                <span class="bg-gradient-to-r from-white via-slate-200 to-brand-400 bg-clip-text text-transparent">Tiyani Nkuna</span>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#home" class="text-slate-300 hover:text-brand-400 transition-colors">Home</a>
+                <a href="#about" class="text-slate-300 hover:text-brand-400 transition-colors">About</a>
+                <a href="#skills" class="text-slate-300 hover:text-brand-400 transition-colors">Skills</a>
+                <a href="#certifications" class="text-slate-300 hover:text-brand-400 transition-colors">Certificates</a>
+                <a href="#projects" class="text-slate-300 hover:text-brand-400 transition-colors">Projects</a>
+                <a href="#contact" class="text-slate-300 hover:text-brand-400 transition-colors">Contact</a>
+            </nav>
+
+            <!-- Desktop CTA -->
+            <div class="hidden md:block">
+                <a href="#contact" class="px-5 py-2.5 rounded-lg text-sm font-semibold bg-brand-500 hover:bg-brand-400 text-neutral-950 transition-all duration-300 border border-brand-500/30">
+                    Let's Connect
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none p-2" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black border-b border-slate-800 px-6 py-6 space-y-4">
+            <a href="#home" class="mobile-link block text-slate-200 hover:text-brand-500 font-medium">Home</a>
+            <a href="#about" class="mobile-link block text-slate-200 hover:text-brand-400 font-medium">About</a>
+            <a href="#skills" class="mobile-link block text-slate-200 hover:text-brand-400 font-medium">Skills</a>
+            <a href="#certifications" class="mobile-link block text-slate-200 hover:text-brand-400 font-medium">Certificates</a>
+            <a href="#projects" class="mobile-link block text-slate-200 hover:text-brand-400 font-medium">Projects</a>
+            <a href="#contact" class="mobile-link block text-slate-200 hover:text-brand-400 font-medium">Contact</a>
+            <a href="#contact" class="mobile-link block w-full text-center py-2.5 rounded-lg bg-brand-500 text-neutral-950 font-semibold">Let's Connect</a>
+        </div>
+    </header>
+
+
+    <main class="flex-grow pt-20">
+
+        <!-- ================= HERO SECTION ================= -->
+        <section id="home" class="relative min-h-[calc(100vh-80px)] flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8 bg-slate-950 text-slate-100 overflow-hidden">
+            <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column: Bio Details & CTA -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left order-2 lg:order-1">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-500 text-xs font-mono">
+                        <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
+                        Available for Industry Roles & Opportunities
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        Tiyani Nkuna Portfolio
+                    </h1>
+
+                    <p class="text-lg sm:text-xl font-medium text-brand-500">
+                        Future Business Analyst, Database Administrator & Tester
+                    </p>
+
+                    <p class="text-slate-300 max-w-2xl mx-auto lg:mx-0 text-base sm:text-lg leading-relaxed">
+                        Final-year Informatics student at Tshwane University of Technology. Specialized in translating complex business requirements into robust relational databases, scalable system architecture, and rigorously tested solutions.
+                    </p>
+
+                    <!-- Hero Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#projects" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-brand-500 hover:bg-brand-400 text-neutral-950 font-bold transition-all duration-300 text-center border border-brand-500/30">
+                            <i class="fa-solid fa-briefcase mr-2"></i> View My Work
+                        </a>
+                        <a href="#contact" class="w-full sm:w-auto px-7 py-3.5 rounded-xl border border-slate-300 bg-slate-800 hover:bg-slate-700 text-white font-semibold transition-all duration-300 text-center hover:border-brand-500">
+                            <i class="fa-solid fa-paper-plane mr-2"></i> Get In Touch
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Profile Image Container -->
+                <div class="lg:col-span-5 flex justify-center order-1 lg:order-2">
+                    <div class="relative group text-center">
+                        <!-- Circular Profile Image -->
+                        <div class="relative rounded-full overflow-hidden bg-slate-950 w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 border border-slate-800">
+                            <img src="Picture.jpeg" alt="Tiyani Nkuna" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105 rounded-full" onerror ="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80';">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= ABOUT SECTION ================= -->
+        <section id="about" class="py-24 bg-slate-100 text-slate-900 border-y border-slate-200/80 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto space-y-12">
+                
+                <!-- Section Title -->
+                <div class="text-center max-w-3xl mx-auto space-y-3">
+                    <h2 class="text-xs font-mono uppercase tracking-widest text-brand-500">Professional Journey</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-slate-950">About Me</p>
+                    <div class="w-16 h-1 bg-brand-500 mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    
+                    <!-- Bio Content -->
+                    <div class="lg:col-span-7 space-y-6 text-slate-700 text-base leading-relaxed">
+                        <p class="text-lg text-slate-900 font-medium">
+                            I am a final-year <span class="text-brand-500 font-semibold">Informatics student at the Tshwane University of Technology (TUT)</span>, maintaining an academic average above <span class="text-brand-500 font-semibold">72%</span>.
+                        </p>
+                        <p>
+                            Driven by a deep passion for Information Technology, system architecture, and community-focused initiatives, I bridge the gap between technical execution and business needs. My academic background has equipped me with high-level competencies in analyzing organizational processes, modeling database schemas, and quality assurance testing.
+                        </p>
+                        <p>
+                            Beyond academia, I have actively demonstrated leadership and administrative capability across multiple student bodies. As **ICT Deputy Secretary** and **GKSS Treasurer**, I managed resources, coordinated operations, and advocated for technical progress. As a **Head Mentor at Student Town Residence**, I guide and support fellow university students in achieving their academic and personal goals.
+                        </p>
+                        <p>
+                            My technical dedication is further demonstrated by my hands-on operational experience independently managing evening computer laboratory operations and delivering technical support in demanding academic environments.
+                        </p>
+                    </div>
+
+                    <!-- Highlight Grid / Cards -->
+                    <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-2">
+                            <i class="fa-solid fa-graduation-cap text-2xl text-brand-500"></i>
+                            <h3 class="text-slate-950 font-bold text-base">Informatics Major</h3>
+                            <p class="text-xs text-slate-500">Tshwane University of Technology (&gt;72% Average)</p>
+                        </div>
+
+                        <div class="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-2">
+                            <i class="fa-solid fa-users-gear text-2xl text-brand-500"></i>
+                            <h3 class="text-slate-950 font-bold text-base">Leadership</h3>
+                            <p class="text-xs text-slate-500">ICT Deputy Secretary & GKSS Treasurer</p>
+                        </div>
+
+                        <div class="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-2">
+                            <i class="fa-solid fa-hands-holding-child text-2xl text-brand-500"></i>
+                            <h3 class="text-slate-950 font-bold text-base">Head Mentor</h3>
+                            <p class="text-xs text-slate-500">Student Town Residence Guidance & Support</p>
+                        </div>
+
+                        <div class="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-2">
+                            <i class="fa-solid fa-server text-2xl text-brand-500"></i>
+                            <h3 class="text-slate-950 font-bold text-base">Lab Management</h3>
+                            <p class="text-xs text-slate-500">Independent Evening Operations & IT Support</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= SKILLS SECTION ================= -->
+        <section id="skills" class="py-24 bg-white text-slate-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+            
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto space-y-3">
+                <h2 class="text-xs font-mono uppercase tracking-widest text-brand-500">Core Competencies</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-slate-950">Technical & Leadership Skills</p>
+                <div class="w-16 h-1 bg-brand-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                
+                <!-- Technical Skills & Visual Progress Bars -->
+                <div class="space-y-6 bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm">
+                    <h3 class="text-xl font-bold text-slate-950 flex items-center gap-3">
+                        <i class="fa-solid fa-code text-brand-500"></i> Technical Expertise
+                    </h3>
+
+                    <div class="space-y-5">
+                        <!-- Database Administration -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm font-medium">
+                                <span class="text-slate-700">Database Administration (MySQL & MS SQL Server)</span>
+                                <span class="text-brand-500 font-mono">90%</span>
+                            </div>
+                            <div class="w-full bg-neutral-800 h-2.5 rounded-full overflow-hidden">
+                                <div class="bg-brand-500 h-full rounded-full transition-all duration-1000" style="width: 90%;"></div>
+                            </div>
+                            <p class="text-xs text-slate-400">Constraint definitions, indexing optimization, foreign key schemas & maintenance.</p>
+                        </div>
+
+                        <!-- Systems Analysis -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm font-medium">
+                                <span class="text-slate-700">Systems Analysis & Design</span>
+                                <span class="text-brand-500 font-mono">85%</span>
+                            </div>
+                            <div class="w-full bg-neutral-800 h-2.5 rounded-full overflow-hidden">
+                                <div class="bg-brand-500 h-full rounded-full transition-all duration-1000" style="width: 85%;"></div>
+                            </div>
+                            <p class="text-xs text-slate-400">Requirement gathering, process modeling, state machines & architectural flow.</p>
+                        </div>
+
+                        <!-- Enterprise Architecture -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm font-medium">
+                                <span class="text-slate-700">Enterprise Architecture (TOGAF Framework)</span>
+                                <span class="text-brand-500 font-mono">80%</span>
+                            </div>
+                            <div class="w-full bg-neutral-800 h-2.5 rounded-full overflow-hidden">
+                                <div class="bg-brand-500 h-full rounded-full transition-all duration-1000" style="width: 80%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Java Development -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm font-medium">
+                                <span class="text-slate-700">Java Development</span>
+                                <span class="text-brand-500 font-mono">75%</span>
+                            </div>
+                            <div class="w-full bg-neutral-800 h-2.5 rounded-full overflow-hidden">
+                                <div class="bg-brand-500 h-full rounded-full transition-all duration-1000" style="width: 75%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Web Development Basics -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm font-medium">
+                                <span class="text-slate-700">Web Development Basics (HTML, CSS, JS)</span>
+                                <span class="text-brand-500 font-mono">75%</span>
+                            </div>
+                            <div class="w-full bg-neutral-800 h-2.5 rounded-full overflow-hidden">
+                                <div class="bg-brand-500 h-full rounded-full transition-all duration-1000" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soft Skills & Tool Badges -->
+                <div class="space-y-8 flex flex-col justify-between">
+                    
+                    <!-- Soft Skills Block -->
+                    <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200 space-y-6">
+                        <h3 class="text-xl font-bold text-slate-950 flex items-center gap-3">
+                            <i class="fa-solid fa-chart-line text-brand-500"></i> Professional & Leadership Skills
+                        </h3>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div class="p-4 rounded-xl bg-white border border-slate-200 text-center shadow-sm">
+                                <i class="fa-solid fa-diagram-project text-2xl text-brand-500 mb-2"></i>
+                                <h4 class="text-sm font-semibold text-slate-950">Project Management</h4>
+                            </div>
+                            <div class="p-4 rounded-xl bg-white border border-slate-200 text-center shadow-sm">
+                                <i class="fa-solid fa-calendar-check text-2xl text-brand-500 mb-2"></i>
+                                <h4 class="text-sm font-semibold text-slate-950">Event Coordination</h4>
+                            </div>
+                            <div class="p-4 rounded-xl bg-white border border-slate-200 text-center shadow-sm">
+                                <i class="fa-solid fa-user-shield text-2xl text-brand-500 mb-2"></i>
+                                <h4 class="text-sm font-semibold text-slate-950">Strategic Leadership</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tech Stack Badges -->
+                    <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200 space-y-4">
+                        <h3 class="text-xl font-bold text-slate-950 flex items-center gap-3">
+                            <i class="fa-solid fa-screwdriver-wrench text-brand-500"></i> Tools & Ecosystem
+                        </h3>
+                        <div class="flex flex-wrap gap-2.5 pt-2">
+                            <span class="px-3.5 py-1.5 rounded-lg bg-slate-100 border border-slate-200 text-xs font-mono text-slate-700 flex items-center gap-2">
+                                <i class="fa-solid fa-database text-blue-500"></i> MySQL
+                            </span>
+                            <span class="px-3.5 py-1.5 rounded-lg bg-slate-100 border border-slate-200 text-xs font-mono text-slate-700 flex items-center gap-2">
+                                <i class="fa-solid fa-server text-red-500"></i> MS SQL Server
+                            </span>
+                            <span class="px-3.5 py-1.5 rounded-lg bg-slate-100 border border-slate-200 text-xs font-mono text-slate-700 flex items-center gap-2">
+                                <i class="fa-brands fa-java text-orange-500"></i> Java
+                            </span>
+                            <span class="px-3.5 py-1.5 rounded-lg bg-slate-100 border border-slate-200 text-xs font-mono text-slate-700 flex items-center gap-2">
+                                <i class="fa-solid fa-sitemap text-purple-500"></i> MS Visio
+                            </span>
+                            <span class="px-3.5 py-1.5 rounded-lg bg-slate-100 border border-slate-200 text-xs font-mono text-slate-700 flex items-center gap-2">
+                                <i class="fa-brands fa-html5 text-orange-600"></i> HTML5
+                            </span>
+                            <span class="px-3.5 py-1.5 rounded-lg bg-slate-100 border border-slate-200 text-xs font-mono text-slate-700 flex items-center gap-2">
+                                <i class="fa-brands fa-css3-alt text-blue-500"></i> CSS3
+                            </span>
+                            <span class="px-3.5 py-1.5 rounded-lg bg-slate-100 border border-slate-200 text-xs font-mono text-slate-700 flex items-center gap-2">
+                                <i class="fa-brands fa-js text-yellow-500"></i> JavaScript
+                            </span>
+                            <span class="px-3.5 py-1.5 rounded-lg bg-slate-100 border border-slate-200 text-xs font-mono text-slate-700 flex items-center gap-2">
+                                <i class="fa-solid fa-layer-group text-emerald-500"></i> TOGAF
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= CERTIFICATIONS SECTION ================= -->
+        <section id="certifications" class="py-24 bg-white text-slate-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+                <div class="text-center max-w-3xl mx-auto space-y-3">
+                    <h2 class="text-xs font-mono uppercase tracking-widest text-brand-500">Recognition & Achievements</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-slate-950">Certificates</p>
+                    <div class="w-16 h-1 bg-brand-500 mx-auto rounded-full"></div>
+                    <p class="text-slate-600 text-base sm:text-lg">Scroll through the previews below, then click any card to open the full certificate.</p>
+                </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center sm:place-items-stretch">
+                <div role="button" tabindex="0" onclick="openCertificateModal('Certificates/CCE%20Volunteer%20.pdf', 'CCE Volunteer Certificate')" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openCertificateModal('Certificates/CCE%20Volunteer%20.pdf', 'CCE Volunteer Certificate'); }" class="group w-full max-w-sm text-left bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm transition duration-300 hover:-translate-y-1 hover:border-brand-500/40 cursor-pointer">
+                    <div class="h-56 bg-slate-950/95 p-2">
+                        <iframe src="Certificates/CCE%20Volunteer%20.pdf#page=1&view=FitH" title="CCE Volunteer Certificate preview" class="w-full h-full rounded-xl border border-slate-700 bg-white"></iframe>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <p class="text-xs font-mono uppercase tracking-wider text-brand-500">Community Service</p>
+                        <h3 class="text-xl font-bold text-slate-950">CCE Volunteer Certificate</h3>
+                        <p class="text-sm text-slate-600">Recognition for volunteer contribution and community engagement initiatives.</p>
+                        <span class="inline-flex items-center gap-2 text-sm font-semibold text-brand-500 group-hover:gap-3 transition-all">
+                            Open full view <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div role="button" tabindex="0" onclick="openCertificateModal('Certificates/Deputy%20Secretary%20ICT.pdf', 'Deputy Secretary ICT Certificate')" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openCertificateModal('Certificates/Deputy%20Secretary%20ICT.pdf', 'Deputy Secretary ICT Certificate'); }" class="group w-full max-w-sm text-left bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm transition duration-300 hover:-translate-y-1 hover:border-brand-500/40 cursor-pointer">
+                    <div class="h-56 bg-slate-950/95 p-2">
+                        <iframe src="Certificates/Deputy%20Secretary%20ICT.pdf#page=1&view=FitH" title="Deputy Secretary ICT Certificate preview" class="w-full h-full rounded-xl border border-slate-700 bg-white"></iframe>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <p class="text-xs font-mono uppercase tracking-wider text-brand-500">Leadership</p>
+                        <h3 class="text-xl font-bold text-slate-950">Deputy Secretary ICT</h3>
+                        <p class="text-sm text-slate-600">Certificate reflecting administrative leadership and ICT-related responsibilities.</p>
+                        <span class="inline-flex items-center gap-2 text-sm font-semibold text-brand-500 group-hover:gap-3 transition-all">
+                            Open full view <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div role="button" tabindex="0" onclick="openCertificateModal('Certificates/GKSS%202024.pdf', 'GKSS 2024 Certificate')" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openCertificateModal('Certificates/GKSS%202024.pdf', 'GKSS 2024 Certificate'); }" class="group w-full max-w-sm text-left bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm transition duration-300 hover:-translate-y-1 hover:border-brand-500/40 cursor-pointer">
+                    <div class="h-56 bg-slate-950/95 p-2">
+                        <iframe src="Certificates/GKSS%202024.pdf#page=1&view=FitH" title="GKSS 2024 Certificate preview" class="w-full h-full rounded-xl border border-slate-700 bg-white"></iframe>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <p class="text-xs font-mono uppercase tracking-wider text-brand-500">Financial Stewardship</p>
+                        <h3 class="text-xl font-bold text-slate-950">GKSS 2024</h3>
+                        <p class="text-sm text-slate-600">Acknowledgement tied to governance, finance, and organisational support.</p>
+                        <span class="inline-flex items-center gap-2 text-sm font-semibold text-brand-500 group-hover:gap-3 transition-all">
+                            Open full view <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div role="button" tabindex="0" onclick="openCertificateModal('Certificates/Hp1.pdf', 'HP Certificate 1')" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openCertificateModal('Certificates/Hp1.pdf', 'HP Certificate 1'); }" class="group w-full max-w-sm text-left bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm transition duration-300 hover:-translate-y-1 hover:border-brand-500/40 cursor-pointer">
+                    <div class="h-56 bg-slate-950/95 p-2">
+                        <iframe src="Certificates/Hp1.pdf#page=1&view=FitH" title="HP Certificate 1 preview" class="w-full h-full rounded-xl border border-slate-700 bg-white"></iframe>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <p class="text-xs font-mono uppercase tracking-wider text-brand-500">Achievement</p>
+                        <h3 class="text-xl font-bold text-slate-950">HP Certificate 1</h3>
+                        <p class="text-sm text-slate-600">Professional recognition from the first achievement record in the certification folder.</p>
+                        <span class="inline-flex items-center gap-2 text-sm font-semibold text-brand-500 group-hover:gap-3 transition-all">
+                            Open full view <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div role="button" tabindex="0" onclick="openCertificateModal('Certificates/Hp2.pdf', 'HP Certificate 2')" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openCertificateModal('Certificates/Hp2.pdf', 'HP Certificate 2'); }" class="group w-full max-w-sm text-left bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm transition duration-300 hover:-translate-y-1 hover:border-brand-500/40 cursor-pointer">
+                    <div class="h-56 bg-slate-950/95 p-2">
+                        <iframe src="Certificates/Hp2.pdf#page=1&view=FitH" title="HP Certificate 2 preview" class="w-full h-full rounded-xl border border-slate-700 bg-white"></iframe>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <p class="text-xs font-mono uppercase tracking-wider text-brand-500">Achievement</p>
+                        <h3 class="text-xl font-bold text-slate-950">HP Certificate 2</h3>
+                        <p class="text-sm text-slate-600">A second credential highlighting progress and continued professional development.</p>
+                        <span class="inline-flex items-center gap-2 text-sm font-semibold text-brand-500 group-hover:gap-3 transition-all">
+                            Open full view <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div role="button" tabindex="0" onclick="openCertificateModal('Certificates/Hp3.pdf', 'HP Certificate 3')" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openCertificateModal('Certificates/Hp3.pdf', 'HP Certificate 3'); }" class="group w-full max-w-sm text-left bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm transition duration-300 hover:-translate-y-1 hover:border-brand-500/40 cursor-pointer">
+                    <div class="h-56 bg-slate-950/95 p-2">
+                        <iframe src="Certificates/Hp3.pdf#page=1&view=FitH" title="HP Certificate 3 preview" class="w-full h-full rounded-xl border border-slate-700 bg-white"></iframe>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <p class="text-xs font-mono uppercase tracking-wider text-brand-500">Achievement</p>
+                        <h3 class="text-xl font-bold text-slate-950">HP Certificate 3</h3>
+                        <p class="text-sm text-slate-600">A third certificate that rounds out the set of recognitions and accomplishments.</p>
+                        <span class="inline-flex items-center gap-2 text-sm font-semibold text-brand-500 group-hover:gap-3 transition-all">
+                            Open full view <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= REFACTORED PROJECTS SECTION ================= -->
+        <section id="projects" class="py-24 bg-slate-100 border-y border-slate-200/80 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto space-y-12">
+                
+                <div class="text-center max-w-3xl mx-auto space-y-3">
+                    <h2 class="text-xs font-mono uppercase tracking-widest text-brand-500">Featured Work</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-slate-950">Technical Projects</p>
+                    <div class="w-16 h-1 bg-brand-500 mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                    
+                    <!-- PROJECT 1: Systems Analysis -->
+                    <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden flex flex-col transition duration-300 card-glow shadow-sm">
+                        <div class="overflow-hidden bg-slate-100 h-52">
+                            <img src="Dataflow.jpeg" alt="Student & Accommodation DFD" class="w-full h-full object-cover lightbox-trigger" onclick="openLightbox(this.src)">
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="px-3 py-1 rounded-md bg-brand-500/10 text-brand-500 border border-brand-500/20 text-xs font-mono font-medium">Systems Analysis</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-950">Student & Accommodation System Analysis</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Detailed Data Flow Diagram (DFD) and system architecture analyzing student registration, property availability management, booking capture, bursary funding verification, and administrative reporting.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- PROJECT 2: MySQL Code Viewer -->
+                    <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden flex flex-col transition duration-300 card-glow lg:col-span-1 shadow-sm">
+                        <div class="flex items-center justify-between px-6 py-3 border-b border-slate-200 bg-slate-100">
+                            <span class="text-[10px] font-mono text-slate-400 uppercase tracking-widest">mysql_schema.sql</span>
+                            <button id="copyBtn" onclick="copySQL()" class="text-xs font-bold text-brand-500 hover:text-brand-400 transition-colors flex items-center gap-2">
+                                <i class="fa-solid fa-copy"></i> Copy Code
+                            </button>
+                        </div>
+                        <div class="p-0 flex-grow bg-[#0d1117] h-52 overflow-y-auto">
+                            <pre class="sql-code p-4 font-mono"><code id="sqlSnippet"><span class="sql-comment">-- Database Initialization</span>
+<span class="sql-keyword">CREATE DATABASE</span> BookstoreDB;
+<span class="sql-keyword">USE</span> BookstoreDB;
+
+<span class="sql-comment">-- Schema Construction</span>
+<span class="sql-keyword">CREATE TABLE</span> Authors (
+    AuthorID <span class="sql-type">INT PRIMARY KEY AUTO_INCREMENT</span>,
+    FirstName <span class="sql-type">VARCHAR</span>(50) <span class="sql-keyword">NOT NULL</span>,
+    LastName <span class="sql-type">VARCHAR</span>(50) <span class="sql-keyword">NOT NULL</span>
+);
+
+<span class="sql-keyword">CREATE TABLE</span> Books (
+    BookID <span class="sql-type">INT PRIMARY KEY AUTO_INCREMENT</span>,
+    Title <span class="sql-type">VARCHAR</span>(150) <span class="sql-keyword">NOT NULL</span>,
+    ISBN <span class="sql-type">VARCHAR</span>(20) <span class="sql-keyword">UNIQUE NOT NULL</span>,
+    Price <span class="sql-type">DECIMAL</span>(10,2) <span class="sql-keyword">NOT NULL</span>,
+    AuthorID <span class="sql-type">INT</span>,
+    <span class="sql-keyword">FOREIGN KEY</span> (AuthorID) <span class="sql-keyword">REFERENCES</span> Authors(AuthorID) <span class="sql-keyword">ON DELETE CASCADE</span>
+);
+
+<span class="sql-comment">-- Queries & Relational Joins</span>
+<span class="sql-keyword">SELECT</span> b.Title, b.Price, <span class="sql-keyword">CONCAT</span>(a.FirstName, <span class="sql-string">' '</span>, a.LastName) <span class="sql-keyword">AS</span> Author
+<span class="sql-keyword">FROM</span> Books b
+<span class="sql-keyword">JOIN</span> Authors a <span class="sql-keyword">ON</span> b.AuthorID = a.AuthorID
+<span class="sql-keyword">WHERE</span> b.Price > 200.00;</code></pre>
+                        </div>
+                        <div class="p-6 border-t border-slate-200">
+                            <h3 class="text-xl font-bold text-slate-950 mb-2">Bookstore Relational Database</h3>
+                            <p class="text-slate-400 text-sm">A full implementation of a normalized database schema with relational integrity, custom views, and performance-optimized join queries.</p>
+                        </div>
+                    </div>
+
+                    <!-- PROJECT 3: Esports Event -->
+                    <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden flex flex-col transition duration-300 card-glow shadow-sm">
+                        <div class="overflow-hidden bg-slate-100 h-52">
+                            <img src="Arena.jpeg" alt="Esports Event Arena" class="w-full h-full object-cover lightbox-trigger" onclick="openLightbox(this.src)">
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="px-3 py-1 rounded-md bg-brand-500/10 text-brand-500 border border-brand-500/20 text-xs font-mono font-medium">Project Management</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-950">Female Only Esports Event (Arena)</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                A women-empowering tournament powered by Red Bull at TUT Soshanguve Campus.
+                            </p>
+                            <div class="text-[11px] font-mono text-slate-500 grid grid-cols-2 gap-2">
+                                <div><i class="fa-solid fa-calendar mr-1"></i> March 27, 2026</div>
+                                <div><i class="fa-solid fa-location-dot mr-1"></i> Soshanguve Gym</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- PROJECT 4: Mini Game -->
+                    <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden flex flex-col transition duration-300 card-glow shadow-sm">
+                        <div class="overflow-hidden bg-slate-100 h-52">
+                            <img src="background.png" alt="Student & Accommodation DFD" class="w-full h-full object-cover lightbox-trigger" onclick="openLightbox(this.src)">
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="px-3 py-1 rounded-md bg-brand-500/10 text-brand-500 border border-brand-500/20 text-xs font-mono font-medium">Mini Game</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-950">Creative Projects</h3>
+                            <a href="TiyaniRunV1.html"><p class="text-slate-400 text-sm leading-relaxed">
+                                A Mini Game to pass time
+                            </p></a>
+                            
+                        </div>
+                    </div>
+                    <!-- PROJECT 5: Mini Game x Blxckie-->
+                    <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden flex flex-col transition duration-300 card-glow shadow-sm">
+                        <div class="overflow-hidden bg-slate-100 h-52">
+                            <img src="background2.png" alt="Student & Accommodation DFD" class="w-full h-full object-cover lightbox-trigger" onclick="openLightbox(this.src)">
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="px-3 py-1 rounded-md bg-brand-500/10 text-brand-500 border border-brand-500/20 text-xs font-mono font-medium">Mini Game version 2</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-950">Creative Projects</h3>
+                            <a href="TiyaniRunV2.html"><p class="text-slate-400 text-sm leading-relaxed">
+                                A Mini Game to pass time
+                            </p></a>
+                            
+                        </div>
+                    </div>
+
+                    <!-- PROJECT 6: FYC Gaming Event -->
+                    <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden flex flex-col transition duration-300 card-glow shadow-sm">
+                        <div class="overflow-hidden bg-slate-100 h-52">
+                            <img src="FYC Gaming Event .jpeg" alt="FYC Gaming Event" class="w-full h-full object-cover lightbox-trigger" onclick="openLightbox(this.src)">
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="px-3 py-1 rounded-md bg-brand-500/10 text-brand-500 border border-brand-500/20 text-xs font-mono font-medium">Event Management</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-950">FYC Gaming Event</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                A gaming-focused community event that brought together players, competition, and engaging digital entertainment.
+                            </p>
+                            <div class="text-[11px] font-mono text-slate-500 grid grid-cols-2 gap-2">
+                                <div><i class="fa-solid fa-gamepad mr-1"></i> Gaming</div>
+                                <div><i class="fa-solid fa-users mr-1"></i> Community</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- PROJECT 7: Snake Game-->
+                    <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden flex flex-col transition duration-300 card-glow shadow-sm">
+                        <div class="overflow-hidden bg-slate-100 h-52">
+                            <img src="Snake Game.png" width="300px" height="300px" alt="Snake Game" class="w-full h-full object-cover lightbox-trigger" onclick="openLightbox(this.src)">
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="px-3 py-1 rounded-md bg-brand-500/10 text-brand-500 border border-brand-500/20 text-xs font-mono font-medium">Mini Game</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-950">Snake Game</h3>
+                            <a href="/Game/Snake Game/index.html "><p class="text-slate-400 text-sm leading-relaxed">
+                                Click Here to play the Snake Game
+                            </p></a>
+                            
+                        </div>
+                    </div>
+                    
+
+                </div>
+            </div>
+        </section>
+
+        <!-- [Contact and Footer stay same] -->
+    </main>
+
+    <!-- ================= LIGHTBOX MODAL ================= -->
+    <div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/95 p-4 transition-all duration-300" onclick="closeLightbox()">
+        <button class="absolute top-6 right-6 text-white text-4xl hover:text-brand-400 transition-colors z-[110]" onclick="closeLightbox()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        
+        <div class="max-w-5xl w-full flex items-center justify-center h-full">
+            <img id="lightbox-img" src="" alt="Enlarged project view" class="max-h-full max-w-full rounded shadow-sm scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
+        </div>
+    </div>
+
+    <!-- ================= CERTIFICATE MODAL ================= -->
+    <div id="certificate-modal" class="fixed inset-0 z-[120] hidden items-center justify-center bg-black/95 p-3 sm:p-4 transition-all duration-300" onclick="closeCertificateModal()">
+        <button class="absolute top-4 right-4 sm:top-6 sm:right-6 text-white text-3xl sm:text-4xl hover:text-brand-400 transition-colors z-[130]" onclick="closeCertificateModal()" aria-label="Close certificate preview">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="w-full max-w-6xl h-[88vh] rounded-2xl overflow-hidden border border-slate-700 bg-slate-950 shadow-sm" onclick="event.stopPropagation()">
+            <div class="flex items-center justify-between px-4 py-3 border-b border-slate-800 bg-slate-950/95">
+                <p id="certificate-title" class="text-sm font-semibold text-white"></p>
+                <button type="button" onclick="closeCertificateModal()" class="text-sm font-medium text-brand-400 hover:text-brand-300">
+                    Close
+                </button>
+            </div>
+            <iframe id="certificate-frame" src="" title="Certificate preview" class="w-full h-full bg-white"></iframe>
+        </div>
+    </div>
+
+    <!-- ================= JAVASCRIPT LOGIC ================= -->
+    <script>
+        // Lightbox Logic
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const certificateModal = document.getElementById('certificate-modal');
+        const certificateFrame = document.getElementById('certificate-frame');
+        const certificateTitle = document.getElementById('certificate-title');
+
+        function openLightbox(src) {
+            lightboxImg.src = src;
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+            setTimeout(() => {
+                lightboxImg.classList.remove('scale-95');
+                lightboxImg.classList.add('scale-100');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightboxImg.classList.add('scale-95');
+            lightboxImg.classList.remove('scale-100');
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+                lightbox.classList.remove('flex');
+                document.body.style.overflow = '';
+            }, 200);
+        }
+
+        function openCertificateModal(src, title) {
+            certificateFrame.src = src;
+            certificateTitle.textContent = title;
+            certificateModal.classList.remove('hidden');
+            certificateModal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCertificateModal() {
+            certificateModal.classList.add('hidden');
+            certificateModal.classList.remove('flex');
+            certificateFrame.src = '';
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLightbox();
+                closeCertificateModal();
+            }
+        });
+
+        function copySQL() {
+            const code = document.getElementById('sqlSnippet').innerText;
+            const btn = document.getElementById('copyBtn');
+            
+            navigator.clipboard.writeText(code).then(() => {
+                const originalHtml = btn.innerHTML;
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+                btn.classList.add('text-emerald-400');
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalHtml;
+                    btn.classList.remove('text-emerald-400');
+                }, 2000);
+            });
+        }
+    </script>
+        <!-- ================= CONTACT SECTION ================= -->
+        <section id="contact" class="py-24 bg-white text-slate-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+            
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto space-y-3">
+                    <h2 class="text-xs font-mono uppercase tracking-widest text-brand-500">Get In Touch</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-slate-950">Let's Work Together</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Direct Information & Social Links -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-bold text-slate-950">Contact Information</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Interested in discussing system analysis, database administration, QA testing, or leadership roles? Feel free to reach out directly through any of the channels below.
+                        </p>
+                    </div>
+
+                    <!-- Direct Contact Details -->
+                    <div class="space-y-4">
+                        <a href="mailto:tiyanithebest@gmail.com" class="flex items-center gap-4 p-4 rounded-xl bg-white border border-slate-200 hover:border-brand-500/50 transition duration-300 group shadow-sm">
+                            <div class="w-12 h-12 rounded-lg bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-500 text-xl group-hover:bg-brand-500 group-hover:text-white transition duration-300">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 uppercase font-mono">Email</p>
+                                <p class="text-slate-950 font-medium text-sm sm:text-base">tiyanithebest@gmail.com</p>
+                            </div>
+                        </a>
+
+                        <a href="tel:0737063963" class="flex items-center gap-4 p-4 rounded-xl bg-white border border-slate-200 hover:border-brand-500/50 transition duration-300 group shadow-sm">
+                            <div class="w-12 h-12 rounded-lg bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-500 text-xl group-hover:bg-brand-500 group-hover:text-white transition duration-300">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 uppercase font-mono">Phone</p>
+                                <p class="text-slate-950 font-medium text-sm sm:text-base">073 706 3963</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Social Profiles Buttons -->
+                    <div class="space-y-3 pt-2">
+                        <p class="text-xs font-mono uppercase tracking-wider text-slate-400">Official Social Handles</p>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <!-- GitHub Button -->
+                            <a href="https://github.com/Ntsocialx" target="_blank" rel="noopener noreferrer" class="flex-1 px-5 py-3 rounded-xl bg-slate-950 border border-slate-700 hover:border-brand-500 text-white font-medium text-sm flex items-center justify-center gap-3 transition duration-300 hover:bg-slate-900">
+                                <i class="fa-brands fa-github text-xl"></i>
+                                <span>GitHub (Ntsocialx)</span>
+                            </a>
+
+                            <!-- LinkedIn Button -->
+                            <a href="https://www.linkedin.com/in/tiyani-nkuna-1839792a4?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer" class="flex-1 px-5 py-3 rounded-xl bg-slate-950 border border-slate-700 hover:border-brand-500 text-white font-medium text-sm flex items-center justify-center gap-3 transition duration-300 hover:bg-slate-900">
+                                <i class="fa-brands fa-linkedin text-xl text-blue-400"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Contact Form -->
+                <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm">
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label for="name" class="block text-xs font-mono uppercase text-slate-300">Your Name</label>
+                                <input type="text" id="name" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-slate-100 border border-slate-200 text-slate-900 placeholder-slate-500 focus:outline-none focus:border-brand-500 transition">
+                            </div>
+                            <div class="space-y-2">
+                                <label for="email" class="block text-xs font-mono uppercase text-slate-300">Your Email</label>
+                                <input type="email" id="email" required placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-100 border border-slate-200 text-slate-900 placeholder-slate-500 focus:outline-none focus:border-brand-500 transition">
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="subject" class="block text-xs font-mono uppercase text-slate-300">Subject</label>
+                            <input type="text" id="subject" required placeholder="Inquiry regarding Business Analyst position" class="w-full px-4 py-3 rounded-xl bg-slate-100 border border-slate-200 text-slate-900 placeholder-slate-500 focus:outline-none focus:border-brand-500 transition">
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="message" class="block text-xs font-mono uppercase text-slate-300">Message</label>
+                            <textarea id="message" rows="5" required placeholder="Write your message here..." class="w-full px-4 py-3 rounded-xl bg-slate-100 border border-slate-200 text-slate-900 placeholder-slate-500 focus:outline-none focus:border-brand-500 transition"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-500 hover:bg-brand-400 text-neutral-950 font-bold transition-all duration-300 border border-brand-500/30 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Send Message
+                        </button>
+
+                        <!-- Form Status Feedback -->
+                        <div id="form-status" class="hidden p-4 rounded-xl text-center text-sm font-medium"></div>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-black border-t border-slate-800 py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-mono">
+            <p>&copy; 2026 Tiyani Nkuna. All Rights Reserved.</p>
+            <p>Informatics </p>
+        </div>
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+        // 1. Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a navigation item is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // 2. Client-side Form Handling Simulation
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Show success state
+            formStatus.classList.remove('hidden', 'bg-red-950/80', 'text-red-300', 'border-red-800');
+            formStatus.classList.add('bg-emerald-950/80', 'text-emerald-300', 'border', 'border-emerald-800');
+            formStatus.innerHTML = '<i class="fa-solid fa-circle-check mr-2"></i> Thank you! Your message has been received. Tiyani will respond shortly.';
+
+            // Reset form
+            contactForm.reset();
+
+            // Clear feedback message after 6 seconds
+            setTimeout(() => {
+                formStatus.classList.add('hidden');
+            }, 6000);
+        });
+
+        // 3. Header Scroll Glassmorphism Polish
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-xl', 'bg-black/95');
+            } else {
+                header.classList.remove('shadow-xl', 'bg-black/95');
+            }
+        });
+    </script>
+</body>
+</html>
